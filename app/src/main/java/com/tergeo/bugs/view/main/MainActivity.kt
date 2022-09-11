@@ -1,8 +1,9 @@
-package com.tergeo.bugs
+package com.tergeo.bugs.view.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.tergeo.bugs.herolist.view.MarvelHeroList
+import com.tergeo.bugs.R
+import com.tergeo.bugs.view.heroesList.view.MarvelHeroListFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -11,7 +12,7 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.fragment_place,MarvelHeroList())
+            .add(R.id.fragment_place, MarvelHeroListFragment())
             .commit()
     }
 }

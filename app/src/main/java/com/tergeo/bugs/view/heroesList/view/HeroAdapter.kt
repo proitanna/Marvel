@@ -1,4 +1,4 @@
-package com.tergeo.bugs.herolist.view
+package com.tergeo.bugs.view.heroesList.view
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,16 +7,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.RequestManager
 import com.tergeo.bugs.R
-import com.tergeo.bugs.herolist.model.HeroModel
-import kotlin.coroutines.coroutineContext
+import com.tergeo.bugs.domain.entity.HeroModel
 
 
 class HeroAdapter(
-    private val listener: OnHeroClickListener
-)
-    : RecyclerView.Adapter<HeroAdapter.HeroVH>() {
+    private val listener: OnHeroClickListener,
+) : RecyclerView.Adapter<HeroAdapter.HeroVH>() {
 
     private var items = arrayListOf<HeroModel>()
 
@@ -32,7 +29,7 @@ class HeroAdapter(
 
     override fun getItemCount(): Int = items.size
 
-    fun submitList (newList: List<HeroModel>) {
+    fun submitList(newList: List<HeroModel>) {
         items.clear()
         items.addAll(newList)
         notifyDataSetChanged()
@@ -45,7 +42,7 @@ class HeroAdapter(
 
         fun bind(model: HeroModel) {
             name.setOnClickListener {
-listener.onHeroClick(model)
+                listener.onHeroClick(model)
             }
 
             name.text = model.name
@@ -60,7 +57,6 @@ listener.onHeroClick(model)
     }
 
     interface OnHeroClickListener {
-
         fun onHeroClick(model: HeroModel)
     }
 }

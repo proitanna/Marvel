@@ -1,4 +1,4 @@
-package com.tergeo.bugs.herolist.view
+package com.tergeo.bugs.view.heroesList.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,20 +9,23 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.tergeo.bugs.R
-import com.tergeo.bugs.heroinfo.HeroInfoFragment
-import com.tergeo.bugs.herolist.model.HeroModel
-import com.tergeo.bugs.herolist.viewmodel.HeroViewModel
-import com.tergeo.bugs.herolist.viewmodel.MainRepository
-import com.tergeo.bugs.herolist.viewmodel.ViewModelFactory
-import com.tergeo.bugs.network.Common.retrofitService
+import com.tergeo.bugs.view.heroInfo.view.HeroInfoFragment
+import com.tergeo.bugs.domain.entity.HeroModel
+import com.tergeo.bugs.view.heroesList.HeroListViewModel
+import com.tergeo.bugs.infrastructure.repository.HeroRepositoryImpl
+import com.tergeo.bugs.view.heroesList.di.ViewModelFactory
+import com.tergeo.bugs.domain.service.network.Common.retrofitService
 
-class MarvelHeroList : Fragment(), HeroAdapter.OnHeroClickListener {
+class MarvelHeroListFragment : Fragment(), HeroAdapter.OnHeroClickListener {
     companion object {
 
         private const val HERO_ARG = "hero"
     }
 
-    private lateinit var viewModel: HeroViewModel
+    private val viewModel by lazy {
+        ViewModelProvider(this, ViewModelFactory(HeroRepositoryImpl(retrofitService)))
+            .get(HeroListViewModel::class.java)
+    }
     private var adapter = HeroAdapter(this)
 
 
@@ -39,14 +42,15 @@ class MarvelHeroList : Fragment(), HeroAdapter.OnHeroClickListener {
 
         val recycler = view.findViewById<RecyclerView>(R.id.hero_recycler)
         recycler.adapter = adapter
-      viewModel = ViewModelProvider(this, ViewModelFactory(MainRepository(retrofitService))).get(HeroViewModel::class.java)
 
-        viewModel.heroListLiveData.observe(viewLifecycleOwner, Observer{
-            adapter.submitList(it)
-        })
-        viewModel.errorMessage.observe(viewLifecycleOwner, Observer{
-        })
-        viewModel.getHeroList()
+        viewModel.apply {
+            getHeroList()
+            heroListLiveData.observe(viewLifecycleOwner, Observer{
+                adapter.submitList(it)
+            })
+            errorMessage.observe(viewLifecycleOwner, Observer{
+            })
+        }
     }
 
     override fun onHeroClick(model: HeroModel) {

@@ -1,4 +1,4 @@
-package com.tergeo.bugs.heroinfo
+package com.tergeo.bugs.view.heroInfo.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.tergeo.bugs.R
-import com.tergeo.bugs.herolist.model.HeroModel
+import com.tergeo.bugs.domain.entity.HeroModel
+import com.tergeo.bugs.view.heroInfo.HeroInfoViewModel
+import com.tergeo.bugs.view.heroInfo.di.ViewModelFactory
 
 
 class HeroInfoFragment : Fragment() {
@@ -17,6 +20,11 @@ class HeroInfoFragment : Fragment() {
     companion object {
 
         private const val HERO_ARG = "hero"
+    }
+
+    private val viewModel by lazy {
+        ViewModelProvider(this, ViewModelFactory())
+            .get(HeroInfoViewModel::class.java)
     }
 
     override fun onCreateView(

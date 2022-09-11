@@ -1,4 +1,4 @@
-package com.tergeo.bugs.herolist.model
+package com.tergeo.bugs.domain.entity
 
 
 import com.google.gson.annotations.SerializedName
