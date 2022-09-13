@@ -1,4 +1,4 @@
-package com.tergeo.bugs.domain.service.network
+package com.tergeo.bugs.data.service
 
 import com.tergeo.bugs.domain.entity.HeroModel
 import retrofit2.Call

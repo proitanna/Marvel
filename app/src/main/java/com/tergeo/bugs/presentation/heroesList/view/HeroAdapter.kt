@@ -1,4 +1,4 @@
-package com.tergeo.bugs.view.heroesList.view
+package com.tergeo.bugs.presentation.heroesList.view
 
 import android.view.LayoutInflater
 import android.view.View

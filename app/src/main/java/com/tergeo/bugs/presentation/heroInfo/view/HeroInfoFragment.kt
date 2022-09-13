@@ -1,4 +1,4 @@
-package com.tergeo.bugs.view.heroInfo.view
+package com.tergeo.bugs.presentation.heroInfo.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,8 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.tergeo.bugs.R
 import com.tergeo.bugs.domain.entity.HeroModel
-import com.tergeo.bugs.view.heroInfo.HeroInfoViewModel
-import com.tergeo.bugs.view.heroInfo.di.ViewModelFactory
+import com.tergeo.bugs.presentation.heroInfo.HeroInfoViewModel
+import com.tergeo.bugs.presentation.heroInfo.di.ViewModelFactory
 
 
 class HeroInfoFragment : Fragment() {

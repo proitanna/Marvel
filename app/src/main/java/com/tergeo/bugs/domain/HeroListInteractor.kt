@@ -1,5 +1,3 @@
-package com.tergeo.bugs.view.heroesList
-
 import androidx.lifecycle.LiveData
 import com.tergeo.bugs.domain.repository.HeroRepository
 import com.tergeo.bugs.domain.entity.HeroModel

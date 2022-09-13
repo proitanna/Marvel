@@ -1,6 +1,4 @@
-package com.tergeo.bugs.domain.service.network
-
-import com.tergeo.bugs.infrastructure.sevice.RetrofitClient
+package com.tergeo.bugs.data.service
 
 object Common {
     private const val BASE_URL = "https://www.simplifiedcoding.net/demos/"

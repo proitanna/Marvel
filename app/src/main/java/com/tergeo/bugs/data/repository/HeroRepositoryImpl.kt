@@ -1,11 +1,11 @@
-package com.tergeo.bugs.infrastructure.repository
+package com.tergeo.bugs.data.repository
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.tergeo.bugs.domain.repository.HeroRepository
 import com.tergeo.bugs.domain.entity.HeroModel
-import com.tergeo.bugs.domain.service.network.API
+import com.tergeo.bugs.data.service.API
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

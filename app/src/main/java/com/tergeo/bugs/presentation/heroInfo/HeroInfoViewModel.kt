@@ -1,4 +1,4 @@
-package com.tergeo.bugs.view.heroInfo
+package com.tergeo.bugs.presentation.heroInfo
 
 import androidx.lifecycle.ViewModel
 

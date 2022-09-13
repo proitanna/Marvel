@@ -1,4 +1,4 @@
-package com.tergeo.bugs.infrastructure.sevice
+package com.tergeo.bugs.data.service
 
 
 import retrofit2.Retrofit

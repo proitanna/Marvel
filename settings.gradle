@@ -8,5 +8,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Bugs"
 include ':app'
-include ':domain'
-include ':data'

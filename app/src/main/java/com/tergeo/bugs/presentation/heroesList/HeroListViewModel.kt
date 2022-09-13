@@ -1,5 +1,6 @@
-package com.tergeo.bugs.view.heroesList
+package com.tergeo.bugs.presentation.heroesList
 
+import HeroListInteractor
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

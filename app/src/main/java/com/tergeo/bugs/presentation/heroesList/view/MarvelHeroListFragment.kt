@@ -1,4 +1,4 @@
-package com.tergeo.bugs.view.heroesList.view
+package com.tergeo.bugs.presentation.heroesList.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,12 +9,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.tergeo.bugs.R
-import com.tergeo.bugs.view.heroInfo.view.HeroInfoFragment
+import com.tergeo.bugs.presentation.heroInfo.view.HeroInfoFragment
 import com.tergeo.bugs.domain.entity.HeroModel
-import com.tergeo.bugs.view.heroesList.HeroListViewModel
-import com.tergeo.bugs.infrastructure.repository.HeroRepositoryImpl
-import com.tergeo.bugs.view.heroesList.di.ViewModelFactory
-import com.tergeo.bugs.domain.service.network.Common.retrofitService
+import com.tergeo.bugs.presentation.heroesList.HeroListViewModel
+import com.tergeo.bugs.data.repository.HeroRepositoryImpl
+import com.tergeo.bugs.presentation.heroesList.di.ViewModelFactory
+import com.tergeo.bugs.data.service.Common.retrofitService
 
 class MarvelHeroListFragment : Fragment(), HeroAdapter.OnHeroClickListener {
     companion object {
@@ -49,6 +49,7 @@ class MarvelHeroListFragment : Fragment(), HeroAdapter.OnHeroClickListener {
                 adapter.submitList(it)
             })
             errorMessage.observe(viewLifecycleOwner, Observer{
+
             })
         }
     }
